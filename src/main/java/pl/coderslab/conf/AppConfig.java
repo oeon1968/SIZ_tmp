@@ -10,6 +10,9 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import pl.coderslab.controller.BookController;
+import pl.coderslab.dao.BookDao;
+import pl.coderslab.service.BookService;
 
 import javax.persistence.EntityManagerFactory;
 
@@ -40,4 +43,16 @@ public class AppConfig implements WebMvcConfigurer {
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+/*
+
+    @Bean
+    public BookService bookService() {
+        return new BookService();
+    }
+    @Bean
+    public BookController bookController(){
+        return new BookController(bookService());
+    }
+*/
+
 }
