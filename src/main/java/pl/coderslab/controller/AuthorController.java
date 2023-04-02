@@ -1,51 +1,52 @@
 package pl.coderslab.controller;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.model.Author;
 import pl.coderslab.service.AuthorService;
 
-@Service
-@RequestMapping("/author")
-@RequiredArgsConstructor
+
+@Controller
 public class AuthorController {
 
-    private final AuthorService authorService;
-
-    @RequestMapping("/add")
+    private final AuthorService aService;
+    public AuthorController(AuthorService aService) {
+        this.aService = aService;
+    }
+    @RequestMapping("/author/add")
     @ResponseBody
-    public String create() {
+    public String hello() {
         Author author = new Author();
-        author.setFirstName("Robert");
-        author.setLastName("Nazwisko");
-        return "Id autora to:" + author.getId();
+        author.setFirstName("Bruce");
+        author.setLastName("Eckel");
+        aService.authorSave(author);
+        return "Id dodanego autora to:"
+                + author.getId();
     }
-
-    @RequestMapping("/get/{id}")
+    @RequestMapping("/author/get/{id}")
     @ResponseBody
-    public String get(@PathVariable long id) {
-        Author author = authorService.findById(id);
+    public String getAuthor(@PathVariable long id) {
+        Author author = aService.authorFindById(id);
         return author.toString();
     }
 
-    @RequestMapping("/update/{id}/{title}")
+    @RequestMapping("/author/update/{id}/{fName}/{sName}")
     @ResponseBody
-    public String update(@PathVariable long id, @PathVariable String title ) {
-        Author author = authorService.findById(id);
-        author.setLastName("Nazwisko");
-        author.setFirstName("Robert");
+    public String updateAuthor(@PathVariable long id, @PathVariable String fName, @PathVariable String sName ) {
+        Author author = aService.authorFindById(id);
+        author.setFirstName(fName);
+        author.setLastName(sName);
+        aService.authorUpdate(author);
         return author.toString();
     }
 
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("/author/delete/{id}")
     @ResponseBody
-    public String delete(@PathVariable long id) {
-        Author author = authorService.findById(id);
-        authorService.delete(author);
+    public String deleteAuthor(@PathVariable long id) {
+        Author author = aService.authorFindById(id);
+        aService.authorDelete(author);
         return "deleted";
     }
-
 }
