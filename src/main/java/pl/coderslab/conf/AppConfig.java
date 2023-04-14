@@ -15,9 +15,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-import pl.coderslab.converter.AuthorConverter;
-import pl.coderslab.converter.CategoryConverter;
-import pl.coderslab.converter.PublisherConverter;
+
 
 import javax.persistence.EntityManagerFactory;
 import javax.validation.Validator;
@@ -34,7 +32,7 @@ public class AppConfig implements WebMvcConfigurer {
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean entityManagerFactoryBean = new LocalEntityManagerFactoryBean();
-        entityManagerFactoryBean.setPersistenceUnitName("bookstorePersistenceUnit");
+        entityManagerFactoryBean.setPersistenceUnitName("SizUnit");
         return entityManagerFactoryBean;
     }
 
@@ -71,25 +69,8 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(getAuthorConverter());
-        //dzień 3
-        registry.addConverter(getPublisherConverter());
-        registry.addConverter(getCategoryConverter());
-    }
-
-    @Bean
-    public AuthorConverter getAuthorConverter() {
-        return new AuthorConverter();
-    }
-
-    @Bean
-    public PublisherConverter getPublisherConverter() {
-        return new PublisherConverter();
-    }
-
-    @Bean
-    public CategoryConverter getCategoryConverter() {
-        return new CategoryConverter();
+        // Konwersja ze string na long
+        // należy zarejestrować BEAN'a
     }
 
 }

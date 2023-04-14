@@ -1,0 +1,21 @@
+package pl.coderslab.model;
+
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "products")
+@Data
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "pr_name", nullable = false, length = 20)
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "product_group_id")
+    private ProductGroup productGroup;
+}

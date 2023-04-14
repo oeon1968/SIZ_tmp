@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.coderslab</groupId>
-    <artifactId>Spring01hibernate</artifactId>
+    <artifactId>SIZ</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>war</packaging>
@@ -64,12 +64,15 @@
             <artifactId>spring-orm</artifactId>
             <version>5.1.9.RELEASE</version>
         </dependency>
+        
+        <!--łącze do BD -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.17</version>
         </dependency>
-
+	
+	<!-- narzędzie do generowania min. seterów i getterów -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
