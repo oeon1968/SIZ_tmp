@@ -10,9 +10,9 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
-    @Column(name = "pr_name", nullable = false, length = 20)
+    @Column(name = "pr_name", nullable = false)
     private String name;
 
     @ManyToOne

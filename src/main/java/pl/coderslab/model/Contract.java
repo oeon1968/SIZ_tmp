@@ -36,8 +36,8 @@ public class Contract {
     @JoinColumn(name = "ctr_type_id")
     private ContractType contractType;
     @ManyToOne
-    @JoinColumn(name = "acc_mgr_id")
-    private AccountManager accountManager;
+    @JoinColumn(name = "product_id")
+    private Product product;
     @ManyToOne
     @JoinColumn(name = "proj_mgr_id")
     private ProjectManager projectManager;
