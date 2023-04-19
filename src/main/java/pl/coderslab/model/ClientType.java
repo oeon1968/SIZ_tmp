@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "client_type")
+@Table(name = "client_types")
 @Data
 public class ClientType {
     @Id
