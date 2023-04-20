@@ -3,8 +3,7 @@ package pl.coderslab.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.ClientType;
 import pl.coderslab.service.ClientTypeService;
 
@@ -21,6 +20,24 @@ public class ClientTypeController {
         model.addAttribute("list", clientTypeList);
         return "/dictionary/clientTypeList";
     }
+    @RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
+    public String clientTypeDel(@PathVariable int id, Model model) {
+         clientTypeService.delete(clientTypeService.getClientType(id));
+        return clientTypeList(model);
+    }
+
+    @GetMapping(value = "/upd/{id}")
+    public String clientTypeForm(@PathVariable int id, Model model) {
+        model.addAttribute("clientType", clientTypeService.getClientType(id));
+        return "/dictionary/clientTypeForm";
+    }
+
+    @PostMapping(value = "/upd/{id}")
+    public String clientTypeUpd(ClientType clientType) {
+        clientTypeService.update(clientType);
+        return "redirect:/client_type";
+    }
+
 
 
 }

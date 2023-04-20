@@ -3,7 +3,6 @@ package pl.coderslab.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.coderslab.dao.ClientTypeDao;
-import pl.coderslab.model.Client;
 import pl.coderslab.model.ClientType;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class ClientTypeService {
     }
 
     public void update (ClientType clientType) {
-        ct.delete(clientType);
+        ct.update(clientType);
     }
 
     public void delete (ClientType clientType) {
@@ -27,5 +26,9 @@ public class ClientTypeService {
 
     public List<ClientType> getClientTypeList() {
         return  ct.ClientTypeList();
+    }
+
+    public ClientType getClientType(int id) {
+        return ct.findObject(id);
     }
 }
