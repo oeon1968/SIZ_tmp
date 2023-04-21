@@ -31,13 +31,21 @@ public class ClientTypeController {
         model.addAttribute("clientType", clientTypeService.getClientType(id));
         return "/dictionary/clientTypeForm";
     }
-
     @PostMapping(value = "/upd/{id}")
     public String clientTypeUpd(ClientType clientType) {
         clientTypeService.update(clientType);
         return "redirect:/client_type";
     }
 
-
+    @GetMapping(value = "/ins")
+    public String clientTypeNew(Model model) {
+        model.addAttribute("clientType", new ClientType());
+        return "/dictionary/clientTypeForm";
+    }
+    @PostMapping(value = "/ins")
+    public String clientTypeIns(ClientType clientType) {
+        clientTypeService.insert(clientType);
+        return "redirect:/client_type";
+    }
 
 }

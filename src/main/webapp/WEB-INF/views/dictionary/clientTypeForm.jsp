@@ -6,6 +6,7 @@
     <title>Client type</title>
 </head>
 <body>
+    <%--@elvariable id="clientType" type="java"--%>
     <form:form method = "post" modelAttribute = "clientType">
         <form:input path="id" />
         <form:input path="typeName" />

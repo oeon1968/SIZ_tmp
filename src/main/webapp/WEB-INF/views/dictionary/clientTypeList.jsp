@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1> Słownik typów klientów </h1>
+<a href = "/SIZ/client_type/ins"> Insert </a>
 <table border="1">
     <thead>
     <tr>
@@ -19,8 +20,8 @@
         <tr>
             <td>${clientType.id}</td>
             <td>${clientType.typeName}</td>
-            <td><a href="/SIZ/client_type/upd/${clientType.id}"> Upgrade</a> </td>
-            <td><a href = "/SIZ/client_type/del/${clientType.id}"> Delete </a></td>
+            <td><a href="/SIZ/client_type/upd/${clientType.id}"> Upgrade</a>
+                <a href = "/SIZ/client_type/del/${clientType.id}"> Delete </a></td>
         </tr>
     </c:forEach>
 </table>
