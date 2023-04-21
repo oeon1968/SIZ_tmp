@@ -6,6 +6,7 @@
     <title>Doradca Klienta</title>
 </head>
 <body>
+    <%--@elvariable id="accountManager" type="java"--%>
     <form:form method="post" modelAttribute="accountManager">
         Identyfikator <form:input path="Id" /> <br>
         Imię <form:input path="firstName" /> <br>

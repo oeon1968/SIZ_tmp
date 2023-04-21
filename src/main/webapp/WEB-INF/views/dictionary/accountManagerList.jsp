@@ -7,6 +7,7 @@
 </head>
 <body>
   <h1>Słownik opiekunów klienta</h1>
+  <a href = "/SIZ/account_manager/ins"> Insert </a>
   <table border = "1">
     <thead>
     <tr>
@@ -21,8 +22,8 @@
         <td>${accountManager.id}</td>
         <td>${accountManager.firstName}</td>
         <td>${accountManager.lastName}</td>
-        <td><a href="/SIZ/account_manager/upd/${accountManager.id}"> Upgrade</a> </td>
-        <td><a href = "/SIZ/account_manager/del/${accountManager.id}"> Delete </a></td>
+        <td><a href="/SIZ/account_manager/upd/${accountManager.id}"> Upgrade</a>
+            <a href = "/SIZ/account_manager/del/${accountManager.id}"> Delete </a></td>
       </tr>
     </c:forEach>
     </tbody>

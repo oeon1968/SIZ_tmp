@@ -39,4 +39,17 @@ public class AccountManagerController {
         accountManagerService.update(accountManager);
         return "redirect:/account_manager";
     }
+
+    @GetMapping(value = "/ins")
+    public String accountManagerNew(Model model) {
+        model.addAttribute("accountManager", new AccountManager());
+        return "/dictionary/accountManagerForm";
+    }
+
+    @PostMapping(value = "/ins")
+    public String accountManagerIns(AccountManager accountManager) {
+        accountManagerService.insert(accountManager);
+        return "redirect:/account_manager";
+    }
+
 }
