@@ -32,8 +32,14 @@ public class ClientDao {
     }
     //select all
     public List<Client> clientList() {
-        return entityManager.createQuery("SELECT cl FROM Client cl " +
-                                        "JOIN FETCH AccountManager am ON cl.accountManager.id = am.id" +
-                                        " JOIN FETCH ClientType ct ON cl.clientType.id = ct.id").getResultList();
+              return entityManager.createQuery("SELECT cl FROM Client cl").getResultList();
     }
+
+
+
+
+
+      /*return entityManager.createQuery("SELECT cl FROM Client cl " +
+                                        "JOIN FETCH AccountManager am ON cl.accountManager.id = am.id" +
+                                        " JOIN FETCH ClientType ct ON cl.clientType.id = ct.id").getResultList();*/
 }

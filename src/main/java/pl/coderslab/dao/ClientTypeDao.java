@@ -2,7 +2,6 @@ package pl.coderslab.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import pl.coderslab.model.Client;
 import pl.coderslab.model.ClientType;
 
 import javax.persistence.EntityManager;
@@ -35,7 +34,7 @@ public class ClientTypeDao {
     }
 
     //select list
-    public List<ClientType> ClientTypeList() {
+    public List<ClientType> clientTypeList() {
         return entityManager.createQuery("SELECT ct FROM ClientType ct ORDER BY ct.typeName").getResultList();
     }
 

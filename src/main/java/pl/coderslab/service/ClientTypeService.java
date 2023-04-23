@@ -25,7 +25,7 @@ public class ClientTypeService {
     }
 
     public List<ClientType> getClientTypeList() {
-        return  ct.ClientTypeList();
+        return  ct.clientTypeList();
     }
 
     public ClientType getClientType(int id) {

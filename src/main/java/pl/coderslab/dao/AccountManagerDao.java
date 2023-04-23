@@ -39,4 +39,8 @@ public class AccountManagerDao {
         List<AccountManager> acc = entityManager.createQuery("SELECT am FROM AccountManager am ORDER BY am.lastName").getResultList();
         return acc;
     }
+  /*  public List<AccountManager> accountManagersToHtmlList() {
+        return entityManager.createQuery("SELECT am.id as id, concat(am.firstName, ' ', am.lastName) as name, am.lastName   " +
+                "FROM AccountManager am ORDER BY am.lastName").getResultList();
+    }*/
 }
