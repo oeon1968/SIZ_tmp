@@ -8,8 +8,9 @@ import javax.persistence.*;
 @Table(name = "project_managers")
 @Data
 public class ProjectManager {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")

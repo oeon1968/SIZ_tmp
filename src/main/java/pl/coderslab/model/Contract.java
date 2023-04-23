@@ -12,14 +12,14 @@ import java.util.Date;
 public class Contract {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String accountNo;
     private String contractNo;
     private Date contractStart;
     private Date contractFinish;
     private String contractScope;
-    private boolean valorization;
-    private boolean activeContract;
+    private Boolean valorization;
+    private Boolean activeContract;
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
@@ -36,8 +36,8 @@ public class Contract {
     @JoinColumn(name = "ctr_type_id")
     private ContractType contractType;
     @ManyToOne
-    @JoinColumn(name = "acc_mgr_id")
-    private AccountManager accountManager;
+    @JoinColumn(name = "product_id")
+    private Product product;
     @ManyToOne
     @JoinColumn(name = "proj_mgr_id")
     private ProjectManager projectManager;

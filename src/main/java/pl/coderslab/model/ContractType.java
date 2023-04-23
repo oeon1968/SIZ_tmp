@@ -5,12 +5,12 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "contract_type")
+@Table(name = "contract_types")
 @Data
 public class ContractType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "ctr_name")
     private String contractName;
 }

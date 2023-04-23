@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class ProductGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "group_name")
     private String name;
 }

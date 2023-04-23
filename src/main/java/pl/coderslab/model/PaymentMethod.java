@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class PaymentMethod {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "payment_method")
     private String paymentMethod;
