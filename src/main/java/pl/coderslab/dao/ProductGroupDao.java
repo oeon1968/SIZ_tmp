@@ -27,7 +27,7 @@ public class ProductGroupDao {
         entityManager.remove(entityManager.contains(productGroup)?productGroup:entityManager.merge(productGroup));
     }
     //select one
-    public ProductGroup findObject(int id) {
+    public ProductGroup findObject(Integer id) {
         return entityManager.find(ProductGroup.class, id);
     }
     //select list

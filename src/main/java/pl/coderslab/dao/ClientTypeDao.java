@@ -30,7 +30,7 @@ public class ClientTypeDao {
     }
 
     //select one
-    public ClientType findObject (int id) {
+    public ClientType findObject (Integer id) {
          return entityManager.find(ClientType.class, id);
     }
 

@@ -27,7 +27,7 @@ public class AccountManagerService {
         return am.accountManagerList();
     }
 
-    public AccountManager getAccountManager(int id) {
+    public AccountManager getAccountManager(Integer id) {
         return am.findObject(id);
     }
 }

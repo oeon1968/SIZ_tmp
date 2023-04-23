@@ -27,7 +27,7 @@ public class ClientDao {
         entityManager.remove(entityManager.contains(client)?client: entityManager.merge(client));
     }
     // select one
-    public Client findObject(int id) {
+    public Client findObject(Integer id) {
         return entityManager.find(Client.class, id);
     }
     //select all

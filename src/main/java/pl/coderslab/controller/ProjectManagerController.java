@@ -23,13 +23,13 @@ public class ProjectManagerController {
     }
 
     @GetMapping(value = "/del/{id}")
-    public String delete(@PathVariable int id, Model model) {
+    public String delete(@PathVariable Integer id, Model model) {
         projectManagerService.delete(projectManagerService.getProjectManager(id));
         return projectManagerList(model);
     }
 
     @GetMapping(value = "/upd/{id}")
-    public String projectManagerForm(@PathVariable int id, Model model) {
+    public String projectManagerForm(@PathVariable Integer id, Model model) {
         model.addAttribute("projectManager", projectManagerService.getProjectManager(id));
         return "/dictionary/projectManagerForm";
     }

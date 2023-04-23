@@ -23,13 +23,13 @@ public class ContractTypeController {
     }
 
     @GetMapping(value = "/del/{id}")
-    public String delete(@PathVariable int id) {
+    public String delete(@PathVariable Integer id) {
         contractTypeService.delete(contractTypeService.getContractType(id));
         return "redirect:/contract_type";
     }
 
     @GetMapping(value = "/upd/{id}")
-    public String contractTypeForm(@PathVariable int id, Model model) {
+    public String contractTypeForm(@PathVariable Integer id, Model model) {
         model.addAttribute(contractTypeService.getContractType(id));
         return "/dictionary/contractTypeForm";
     }

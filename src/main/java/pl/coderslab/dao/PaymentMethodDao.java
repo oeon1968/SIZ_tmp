@@ -27,7 +27,7 @@ public class PaymentMethodDao {
         entityManager.remove(entityManager.contains(paymentMethod) ? paymentMethod:entityManager.merge(paymentMethod));
     }
     //select one
-    public PaymentMethod findObject(int id) {
+    public PaymentMethod findObject(Integer id) {
         return entityManager.find(PaymentMethod.class, id);
     }
     //select list

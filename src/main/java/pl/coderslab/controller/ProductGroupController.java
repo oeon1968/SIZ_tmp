@@ -20,13 +20,13 @@ public class ProductGroupController {
     }
 
     @RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
-    public String productGroupDel(@PathVariable int id) {
+    public String productGroupDel(@PathVariable Integer id) {
         productGroupService.delete(productGroupService.getProductGroup(id));
         return "redirect:/product_group";
     }
 
     @GetMapping(value = "/upd/{id}")
-    public String productGroupForm(@PathVariable int id, Model model) {
+    public String productGroupForm(@PathVariable Integer id, Model model) {
         model.addAttribute(productGroupService.getProductGroup(id));
         return "/dictionary/productGroupForm";
     }

@@ -23,13 +23,13 @@ public class AccountManagerController {
     }
 
     @GetMapping(value = "/del/{id}")
-    public String delete(@PathVariable int id, Model model) {
+    public String delete(@PathVariable Integer id, Model model) {
         accountManagerService.delete(accountManagerService.getAccountManager(id));
         return accountManagerList(model);
     }
 
     @GetMapping(value = "/upd/{id}")
-    public String accountManagerForm(@PathVariable int id, Model model) {
+    public String accountManagerForm(@PathVariable Integer id, Model model) {
         model.addAttribute("accountManager", accountManagerService.getAccountManager(id));
         return "/dictionary/accountManagerForm";
     }

@@ -23,13 +23,13 @@ public class PaymentMethodController {
     }
 
     @RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
-    public String paymentMethodDel(@PathVariable int id) {
+    public String paymentMethodDel(@PathVariable Integer id) {
         paymentMethodService.delete(paymentMethodService.getPaymentMethod(id));
         return "redirect:/payment_method";
     }
 
     @RequestMapping(value = "/upd/{id}")
-    public String paymentMethodForm(@PathVariable int id, Model model) {
+    public String paymentMethodForm(@PathVariable Integer id, Model model) {
         model.addAttribute("paymentMethod", paymentMethodService.getPaymentMethod(id));
         return "/dictionary/paymentMethodForm";
     }

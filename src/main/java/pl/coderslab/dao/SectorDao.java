@@ -27,7 +27,7 @@ public class SectorDao {
         entityManager.remove(entityManager.contains(sector)?sector:entityManager.merge(sector));
     }
     //select one
-    public Sector findObject(int id) {
+    public Sector findObject(Integer id) {
         return entityManager.find(Sector.class, id);
     }
     //select list

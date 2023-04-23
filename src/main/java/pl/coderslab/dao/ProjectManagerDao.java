@@ -30,7 +30,7 @@ public class ProjectManagerDao {
     }
 
     //select one
-    public ProjectManager findObject (int id) {
+    public ProjectManager findObject (Integer id) {
         return entityManager.find(ProjectManager.class, id);
     }
 

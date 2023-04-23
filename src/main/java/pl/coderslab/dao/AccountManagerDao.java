@@ -30,7 +30,7 @@ public class AccountManagerDao {
     }
 
     //select one
-    public AccountManager findObject (int id) {
+    public AccountManager findObject (Integer id) {
         return entityManager.find(AccountManager.class, id);
     }
 

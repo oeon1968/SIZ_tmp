@@ -21,13 +21,13 @@ public class ClientTypeController {
         return "/dictionary/clientTypeList";
     }
     @RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
-    public String clientTypeDel(@PathVariable int id, Model model) {
+    public String clientTypeDel(@PathVariable Integer id, Model model) {
          clientTypeService.delete(clientTypeService.getClientType(id));
         return clientTypeList(model);
     }
 
     @GetMapping(value = "/upd/{id}")
-    public String clientTypeForm(@PathVariable int id, Model model) {
+    public String clientTypeForm(@PathVariable Integer id, Model model) {
         model.addAttribute("clientType", clientTypeService.getClientType(id));
         return "/dictionary/clientTypeForm";
     }

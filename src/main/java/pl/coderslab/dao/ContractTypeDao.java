@@ -28,7 +28,7 @@ public class ContractTypeDao {
         entityManager.remove(entityManager.contains(contractType) ? contractType : entityManager.merge(contractType));
     }
     //select one
-    public ContractType findObject (int id) {
+    public ContractType findObject (Integer id) {
         return entityManager.find(ContractType.class, id);
     }
     //select list

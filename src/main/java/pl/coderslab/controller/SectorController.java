@@ -25,13 +25,13 @@ public class SectorController {
         return "dictionary/sectorList";
     }
     @GetMapping(value = "/del/{id}")
-    public String sectorDel(@PathVariable int id) {
+    public String sectorDel(@PathVariable Integer id) {
         sectorService.delete(sectorService.getSector(id));
         return "redirect:/sector";
     }
 
     @GetMapping(value = "/upd/{id}")
-    public String sectorForm(@PathVariable int id, Model model) {
+    public String sectorForm(@PathVariable Integer id, Model model) {
         model.addAttribute("sector", sectorService.getSector(id));
         return "/dictionary/sectorForm";
     }
