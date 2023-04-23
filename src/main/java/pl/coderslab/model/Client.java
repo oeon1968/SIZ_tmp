@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Client {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "cl_abbreviation", nullable = false, length = 15)
     private String client_abbreviation;
     @Column(name = "cl_name")

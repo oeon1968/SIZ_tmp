@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class ProjectManager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")

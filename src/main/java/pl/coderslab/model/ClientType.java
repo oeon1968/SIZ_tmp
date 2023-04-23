@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class ClientType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "type_name")
     private String typeName;
 }

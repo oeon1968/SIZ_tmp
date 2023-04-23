@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Sector {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "sector_name")
     private String sectorName;
