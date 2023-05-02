@@ -23,9 +23,6 @@ public class Contract {
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
-
-    //powiązać produkty z kontraktem - relacja "wiele do wielu"
-
     @ManyToOne
     @JoinColumn(name = "payment_method_id")
     private PaymentMethod paymentMethod;

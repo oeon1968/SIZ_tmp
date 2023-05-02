@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Data
 public class Client {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "cl_abbreviation", nullable = false, length = 15)
     private String client_abbreviation;
@@ -18,7 +18,8 @@ public class Client {
     @ManyToOne
     @JoinColumn(name = "acc_mgr_id")
     private AccountManager accountManager;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cl_type_id")
     private ClientType clientType;
+
 }

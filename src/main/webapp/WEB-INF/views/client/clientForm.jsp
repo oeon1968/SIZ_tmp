@@ -20,7 +20,7 @@
     <jsp:useBean id="accountManagers" scope="request" type="java.util.List"/>
                         <form:option value="" label="Brak"/>
                         <form:options itemValue="id"
-                                      itemLabel="firstName"
+                                      itemLabel="name"
                                       items="${accountManagers}"/>
                     </form:select><br>
     <button type="submit"> Zapisz</button>
