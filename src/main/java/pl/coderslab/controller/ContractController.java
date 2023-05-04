@@ -5,15 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.HttpRequestHandler;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.*;
 import pl.coderslab.service.ContractService;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -62,11 +60,14 @@ public class ContractController {
         return "/contract/contractForm";
     }
     @PostMapping("/ins")
-    public String contractIns(Contract contract,
+    public String contractIns(@Valid Contract contract, BindingResult resultValidation,
                               @RequestParam Date start,
                               @RequestParam Date finish) {
         contract.setContractStart(start);
         contract.setContractFinish(finish);
+        if(resultValidation.hasErrors()) {
+            return "/ins";
+        }
         contractService.insert(contract);
         return "redirect:/contract";
     }
@@ -77,12 +78,15 @@ public class ContractController {
         return "/contract/contractForm";
     }
     @PostMapping("/upd/{id}")
-    public String contractUpd (Contract contract,
+    public String contractUpd (@Valid Contract contract, BindingResult resultValidation,
                                @RequestParam Date start,
                                @RequestParam Date finish) {
         //sprawdzić zastosowanie konwertera
         contract.setContractStart(start);
         contract.setContractFinish(finish);
+        if(resultValidation.hasErrors()) {
+            return "contract/contractForm";
+        }
         contractService.update(contract);
         return "redirect:/contract";
     }

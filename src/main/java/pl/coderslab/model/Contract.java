@@ -1,7 +1,6 @@
 package pl.coderslab.model;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,6 +14,7 @@ public class Contract {
     private Integer id;
     private String accountNo;
     private String contractNo;
+    //@DateTimeFormat
     private Date contractStart;
     private Date contractFinish;
     private String contractScope;
