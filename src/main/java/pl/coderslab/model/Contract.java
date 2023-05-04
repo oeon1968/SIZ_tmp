@@ -12,7 +12,7 @@ import java.util.Date;
 public class Contract {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String accountNo;
     private String contractNo;
     private Date contractStart;

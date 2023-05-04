@@ -5,55 +5,59 @@
     <title>Contract</title>
 </head>
 <body>
+
 <%--@elvariable id="Contract" type="java"--%>
 <form:form modelAttribute="Contract" method="post">
     Identyfikator <form:input path="id"/> <br>
-    Nr konta <form:input path="accountNo" maxlength="12"/>
-    Nr umowy <form:input path="contractNo" maxlength="12"/><br>
-    Data startu <form:input path="contractStart" size="10" maxlength="10" cssStyle="speak-date: ymd"/>
-    Data końca <form:input path="contractFinish" size="10" maxlength="10"/><br>
+    Nazwa klienta (skrót)
+    <form:select path="client.id">
+        <jsp:useBean id="clients" scope="request" type="java.util.List"/>
+        <form:option value="" label="--NIEZNANY--"/>
+        <form:options itemValue="id" itemLabel="client_abbreviation" items="${clients}"/><br>
+    </form:select>
+    <br>
+    Metoda płatności
+    <form:select path="paymentMethod.id">
+        <jsp:useBean id="paymentMethods" scope="request" type="java.util.List"/>
+        <form:option value="" label="--NIEZNANA--"/>
+        <form:options items="${paymentMethods}" itemLabel="paymentMethod" itemValue="id"/>
+    </form:select><br>
+     Nr konta <form:input path="accountNo" maxlength="12"/>
+     Nr umowy <form:input path="contractNo" maxlength="12"/><br>
     Waloryzacja <form:input path="valorization"/>
     Umowa aktywna? <form:input path="activeContract"/><br>
     <br><br>
-    Nazwa klienta (skrót)
-        <form:select path="client.id">
-            <jsp:useBean id="clients" scope="request" type="java.util.List"/>
-            <form:option value="" label="--NIEZNANY--"/>
-            <form:options itemValue="id" itemLabel="client_abbreviation" items="${clients}"/><br>
-        </form:select>
+    Data startu <input type="date" name="start" id="contractDateStart" value="${Contract.contractStart}"/>
+    Data startu <input type="date" name="finish" id="contractDateFinish" value="${Contract.contractFinish}"/>
+
     <br>
-    Metoda płatności
-        <form:select path="paymentMethod.id">
-            <jsp:useBean id="paymentMethods" scope="request" type="java.util.List"/>
-            <form:option value="" label="--NIEZNANA--"/>
-            <form:options items="${paymentMethods}" itemLabel="paymentMethod" itemValue="id"/>
-        </form:select>
-    Sector
-        <form:select path="sector.id">
-            <jsp:useBean id="sectors" scope="request" type="java.util.List"/>
-            <form:option value="" label="--NIEZNANA--"/>
-            <form:options items="${sectors}" itemLabel="sectorName" itemValue="id"/>
-        </form:select>
-    <br>
-    Typ umowy
-        <form:select path="contractType.id">
-            <jsp:useBean id="contractTypes" scope="request" type="java.util.List"/>
-            <form:option value="" label="--NIEZNANY--"/>
-            <form:options items="${contractTypes}" itemLabel="contractName" itemValue="id"/>
-        </form:select>
-    Produkt
-        <form:select path="product.id">
-            <jsp:useBean id="products" scope="request" type="java.util.List"/>
-            <form:option value="" label="--NIEZNANY--"/>
-            <form:options items="${products}" itemLabel="name" itemValue="id"/>
-        </form:select>
-    <br>
-    Kierownik projektu
-        <form:select path="projectManager.id">
-            <jsp:useBean id="projectManagers" scope="request" type="java.util.List"/>
-            <form:option value = "" label="--NIEZNANY--"/>
-            <form:options items = "${projectManagers}" itemLabel="name" itemValue="id"/>
-        </form:select><br>
+
+     Sector
+         <form:select path="sector.id">
+             <jsp:useBean id="sectors" scope="request" type="java.util.List"/>
+             <form:option value="" label="--NIEZNANA--"/>
+             <form:options items="${sectors}" itemLabel="sectorName" itemValue="id"/>
+         </form:select>
+     <br>
+     Typ umowy
+         <form:select path="contractType.id">
+             <jsp:useBean id="contractTypes" scope="request" type="java.util.List"/>
+             <form:option value="" label="--NIEZNANY--"/>
+             <form:options items="${contractTypes}" itemLabel="contractName" itemValue="id"/>
+         </form:select>
+     Produkt
+         <form:select path="product.id">
+             <jsp:useBean id="products" scope="request" type="java.util.List"/>
+             <form:option value="" label="--NIEZNANY--"/>
+             <form:options items="${products}" itemLabel="name" itemValue="id"/>
+         </form:select>
+     <br>
+     Kierownik projektu
+         <form:select path="projectManager.id">
+             <jsp:useBean id="projectManagers" scope="request" type="java.util.List"/>
+             <form:option value = "" label="--NIEZNANY--"/>
+             <form:options items = "${projectManagers}" itemLabel="name" itemValue="id"/>
+         </form:select><br>
     <button type="submit">Save</button>
 </form:form>
 

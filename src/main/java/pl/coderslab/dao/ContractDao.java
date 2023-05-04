@@ -26,7 +26,7 @@ public class ContractDao {
         entityManager.remove(entityManager.contains(contract)?contract:entityManager.merge(contract));
     }
     //select one
-    public Contract findObject(Long id) {
+    public Contract findObject(Integer id) {
         return entityManager.find(Contract.class, id);
     }
     //select all

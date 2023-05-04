@@ -42,7 +42,7 @@
             <td>${contract.contractNo}</td>
             <td>${contract.contractStart}</td>
             <td>${contract.contractFinish}</td>
-                <%--<td>${contract.Scope}</td>--%>
+            <%--<td>${contract.Scope}</td>--%>
             <td>${contract.valorization}</td>
             <td>${contract.activeContract}</td>
             <td>${contract.client.client_abbreviation}</td>
@@ -52,8 +52,8 @@
             <td>${contract.product.name}</td>
             <td>${contract.projectManager.name}</td>
             <td>
-                <a href="/contract/contractForm/upd/${contract.id}"> Update</a>
-                <a href="/contract/contractForm/del/${contract.id}"> Delete</a>
+                <a href="/SIZ/contract/upd/${contract.id}"> Update</a>
+                <a href="/SIZ/contract/del/${contract.id}"> Delete</a>
             </td>
         </tr>
     </c:forEach>

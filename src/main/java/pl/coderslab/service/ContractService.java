@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.dao.*;
 import pl.coderslab.model.*;
 
+import javax.print.attribute.IntegerSyntax;
 import java.util.List;
 
 @Service
@@ -31,7 +32,7 @@ public class ContractService {
         contractDao.delete(contract);
     }
 
-    public Contract getContract(Long id) {
+    public Contract getContract(Integer id) {
         return contractDao.findObject(id);
     }
 

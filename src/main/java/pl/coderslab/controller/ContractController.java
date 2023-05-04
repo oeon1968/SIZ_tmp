@@ -1,12 +1,19 @@
 package pl.coderslab.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.*;
 import pl.coderslab.service.ContractService;
 
+import javax.servlet.http.HttpServletRequest;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -14,6 +21,7 @@ import java.util.List;
 @RequestMapping("/contract")
 @RequiredArgsConstructor
 public class ContractController {
+    private static final Logger logger = LoggerFactory.getLogger(ContractController.class);
     private final ContractService contractService;
 
     //słowniki uzupełniające
@@ -53,19 +61,37 @@ public class ContractController {
         model.addAttribute("Contract", new Contract());
         return "/contract/contractForm";
     }
-    //dopisać metodę post
     @PostMapping("/ins")
-    @ResponseBody
-    //jest błąd
-    public String ContractIns(Contract contract) {
+    public String contractIns(Contract contract,
+                              @RequestParam Date start,
+                              @RequestParam Date finish) {
+        contract.setContractStart(start);
+        contract.setContractFinish(finish);
         contractService.insert(contract);
-        return contract.toString();
+        return "redirect:/contract";
     }
 
     @GetMapping("/upd/{id}")
-    public String contractNew(@PathVariable Long id, Model model) {
+    public String contractNew(@PathVariable Integer id, Model model) {
         model.addAttribute("Contract", contractService.getContract(id));
         return "/contract/contractForm";
     }
-    //dopisać metodę post
+    @PostMapping("/upd/{id}")
+    public String contractUpd (Contract contract,
+                               @RequestParam Date start,
+                               @RequestParam Date finish) {
+        //sprawdzić zastosowanie konwertera
+        contract.setContractStart(start);
+        contract.setContractFinish(finish);
+        contractService.update(contract);
+        return "redirect:/contract";
+    }
+
+    @GetMapping("/del/{id}")
+    public String contractDel(@PathVariable Integer id) {
+        contractService.delete(contractService.getContract(id));
+        return "redirect:/contract";
+    }
+
+
 }
