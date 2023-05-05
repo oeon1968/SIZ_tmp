@@ -6,7 +6,7 @@
   Time: 19:08
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Contract List</title>
@@ -35,6 +35,7 @@
     </tr>
     </thead>
     <tbody>
+    <jsp:useBean id="Contracts" scope="request" type="java.util.List"/>
     <c:forEach var="contract" items="${Contracts}">
         <tr>
             <td>${contract.id}</td>
@@ -54,6 +55,7 @@
             <td>
                 <a href="/SIZ/contract/upd/${contract.id}"> Update</a>
                 <a href="/SIZ/contract/del/${contract.id}"> Delete</a>
+                <a href="/SIZ/contract/payment/ins/${contract.id}">New payment</a>
             </td>
         </tr>
     </c:forEach>
