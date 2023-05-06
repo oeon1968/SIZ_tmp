@@ -3,6 +3,7 @@ package pl.coderslab.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
@@ -16,6 +17,7 @@ public class ContractPayment {
     @NotNull
     private Date paymentDate;
     @NotNull
+    @Min(value = 0)
     private Double paymentValue;
 
     @ManyToOne

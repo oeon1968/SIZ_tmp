@@ -1,6 +1,8 @@
 package pl.coderslab.model;
 import lombok.Data;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 
 
@@ -13,8 +15,10 @@ public class Contract {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
     private String accountNo;
+    @NotNull
     private String contractNo;
-    //@DateTimeFormat
+    @NotNull(message = "Wprowadź datę rozpoczęcia umowy.")
+    @Size(min=8, max=10, message = "Nieprawidłowy format daty. Wprowadź DD-MM-RRRR.")
     private Date contractStart;
     private Date contractFinish;
     private String contractScope;
@@ -40,7 +44,7 @@ public class Contract {
     private ProjectManager projectManager;
 
     //dopisać pomocnicze dane księgowe
-    //dopisać powiązanie do przepływów pieniężnych
+
 
 
 

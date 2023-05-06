@@ -24,8 +24,8 @@
     </form:select><br>
      Nr konta <form:input path="accountNo" maxlength="12"/>
      Nr umowy <form:input path="contractNo" maxlength="12"/><br>
-    Waloryzacja <form:input path="valorization"/>
-    Umowa aktywna? <form:input path="activeContract"/><br>
+    Waloryzacja? <form:checkbox path="valorization"/>
+    Umowa aktywna? <form:checkbox path="activeContract"/><br>
     <br><br>
     Data startu <input type="date" name="start" id="contractDateStart" value="${Contract.contractStart}"/>
     Data startu <input type="date" name="finish" id="contractDateFinish" value="${Contract.contractFinish}"/>
